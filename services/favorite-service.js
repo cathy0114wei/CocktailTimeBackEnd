@@ -1,3 +1,4 @@
+const userService = require("../database/user/user-dao");
 module.exports = (app) => {
     const favoriteService = require('../database/favorite/favorite-dao');
 
@@ -12,7 +13,7 @@ module.exports = (app) => {
             }
         });
     }
-    
+
     const findFavoritesByUserId = (req, res) => {
         const userId = req.params.userId;
         favoriteService.findFavoritesByUserId(userId)
@@ -36,8 +37,16 @@ module.exports = (app) => {
             .then(favorite => res.json(favorite));
     }
 
+    const findAllFavorites = (req, res) => {
+        favoriteService.findAllFavorite()
+            .then((favorites) => {
+                res.send(favorites);
+            });
+    }
+
     app.get('/api/favorite/:cocktailId/:userId', isFavorite);
     app.get('/api/favorite/:userId', findFavoritesByUserId);
     app.post('/api/favorite', addFavorite);
     app.delete('/api/favorite', removeFavorite);
+    app.get('/api/favorite', findAllFavorites);
 }
