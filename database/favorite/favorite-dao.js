@@ -1,5 +1,6 @@
 const favoriteModel = require('./favorite-model');
 
+
 const isFavorite = (userId, cocktailId) => {
     return favoriteModel.countDocuments({userId, cocktailId});
 }
@@ -16,9 +17,14 @@ const removeFavorite = (userId, cocktailId) => {
     return favoriteModel.deleteOne({userId, cocktailId});
 }
 
+const findAllFavorites = () => {
+    return favoriteModel.find()
+}
+
 module.exports = {
     isFavorite,
     findFavoritesByUserId,
     addFavorite,
     removeFavorite,
+    findAllFavorites,
 }

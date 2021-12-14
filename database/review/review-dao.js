@@ -1,4 +1,3 @@
-
 const reviewModel = require("./review-model")
 
 const findAllReviews = () => {
