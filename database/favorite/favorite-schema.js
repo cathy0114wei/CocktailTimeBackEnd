@@ -6,9 +6,9 @@ const favoriteSchema = new mongoose.Schema({
         ref: 'UserModel'
     },
     username: String,
-    recipeId: String,
-    recipeName: String,
-    recipeImg: String
+    cocktailId: String,
+    cocktailName: String,
+    cocktailImg: String
 }, {collection: 'favorite'});
 
 module.exports = favoriteSchema;

@@ -1,4 +1,4 @@
-const userService = require("../database/user/user-dao");
+
 module.exports = (app) => {
     const favoriteService = require('../database/favorite/favorite-dao');
 
@@ -38,7 +38,7 @@ module.exports = (app) => {
     }
 
     const findAllFavorites = (req, res) => {
-        favoriteService.findAllFavorite()
+        favoriteService.findAllFavorites()
             .then((favorites) => {
                 res.send(favorites);
             });

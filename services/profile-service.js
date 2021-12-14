@@ -1,7 +1,6 @@
+
 module.exports = (app) => {
     const userService = require("../database/user/user-dao");
-
-
 
     const findUser = (req, res) => {
         const currentUser = req.session['currentUser'];
@@ -54,7 +53,6 @@ module.exports = (app) => {
                 req.session.save();
             });
     }
-
 
     app.get("/api/profile", findUser);
     app.get("/api/profiles/:uid", findUserById);
