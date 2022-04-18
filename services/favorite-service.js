@@ -1,4 +1,3 @@
-
 module.exports = (app) => {
     const favoriteService = require('../database/favorite/favorite-dao');
 
